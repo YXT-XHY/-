@@ -2,6 +2,8 @@
 
 ## 当前入口：真实音频深度学习分类
 
+新增“评估可视化”导航：查看真实受试者级OOF混淆矩阵、ROC和关键指标；分析录音后可查看分数位置与5个模型的分数条，也可导入网页导出的原始JSON报告。点击“打印 / 保存 PDF”可输出可视化结果。导入报告未包含逐人分数时只显示汇总指标和混淆矩阵，不生成ROC；升级代码后需重启`recording_server.py`。
+
 公开数据检索、元数据核查与批量下载：`python -m data_tools catalog`，使用说明见 [PUBLIC_DATA_TOOL.md](PUBLIC_DATA_TOOL.md)。中文候选来源及申请条件见 [CHINESE_DATA_SOURCES.md](CHINESE_DATA_SOURCES.md)。
 
 运行 `& '.\.venv-dl\Scripts\python.exe' recording_server.py --port 8768`，打开 http://127.0.0.1:8768/ 。已接入基于真实 MDVR-KCL 英文朗读语料训练的 CNN + Transformer 模型，支持录音/音频导入 → 实际推理 → 研究分类/不确定 → 报告导出。模型训练、按人验证和限制详见 [DEEP_LEARNING.md](DEEP_LEARNING.md)。下文 UCI CSV 逻辑回归是保留的独立历史基线。

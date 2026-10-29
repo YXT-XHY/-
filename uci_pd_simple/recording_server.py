@@ -175,6 +175,12 @@ class CollectionHandler(SimpleHTTPRequestHandler):
                                             "inference": self.server.model_status()["ready"]})
         if path == "/api/model":
             return self.json_response(200, self.server.model_status())
+        if path == "/api/evaluation":
+            from deep_learning.evaluation import build_evaluation
+            try:
+                return self.json_response(200, build_evaluation(self.server.model_dir))
+            except (OSError, ValueError, KeyError, TypeError) as exc:
+                return self.json_response(503, {"error": "评估数据不可用：" + str(exc)})
         if path == "/api/recordings":
             return self.json_response(200, {"recordings": self.server.store.list()})
         match = re.fullmatch(r"/api/recordings/([a-f0-9]{32})/audio", path)

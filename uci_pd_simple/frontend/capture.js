@@ -252,6 +252,7 @@
       const response=await fetch('/api/predict?'+params,{method:'POST',headers:{'Content-Type':'audio/wav'},body:clip.blob});
       const data=await response.json();if(!response.ok)throw new Error(data.error||'分析失败');
       const result=data.prediction;state.lastPrediction=result;
+      result.label={hc_like:'更接近健康对照组',pd_like:'更接近帕金森病组',uncertain:'无法明确归组'}[result.prediction]||'无法明确归组';
       el('score').textContent=result.model_score.toFixed(3);el('scoreArc').style.strokeDasharray=result.model_score*100+' 100';
       el('scoreBand').textContent=result.label;el('scoreBand').classList.toggle('pending',result.uncertain);
       el('predictionWarnings').textContent=result.warnings.join(' ');

@@ -2,33 +2,30 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#10051d"><meta name="description" content="NEURODRIVE 神经声学实验室：Outrun 复古未来交互原型">
+<meta name="theme-color" content="#e0e5ec"><meta name="description" content="NEURODRIVE 语音健康工作台：新拟物界面">
 <title>NEURODRIVE / 神经声学实验室</title>
-<link rel="stylesheet" href="outrun.css">
+<link rel="stylesheet" href="evaluation.css">
+<link rel="stylesheet" href="neumorphism.css">
 </head>
 <body>
-<div class="sky" aria-hidden="true"><div class="stars"></div><div class="sun"></div><div class="horizon"></div><div class="grid-floor"></div>
-<svg class="palm palm-left" viewBox="0 0 200 320"><path d="M109 320C97 236 110 155 125 90L133 93C112 168 112 238 128 320ZM129 94C93 64 42 76 13 103 48 94 77 91 114 100 69 100 39 120 29 151 58 131 86 118 120 109 93 137 86 164 91 191 107 165 123 137 134 110 145 146 167 166 190 170 176 139 161 115 143 101 172 99 190 105 200 119 199 88 170 75 138 84 165 64 179 45 179 22 156 36 135 58 129 82 110 46 85 30 60 29 76 57 96 78 129 94Z"/></svg>
-<svg class="palm palm-right" viewBox="0 0 200 320"><path d="M109 320C97 236 110 155 125 90L133 93C112 168 112 238 128 320ZM129 94C93 64 42 76 13 103 48 94 77 91 114 100 69 100 39 120 29 151 58 131 86 118 120 109 93 137 86 164 91 191 107 165 123 137 134 110 145 146 167 166 190 170 176 139 161 115 143 101 172 99 190 105 200 119 199 88 170 75 138 84 165 64 179 45 179 22 156 36 135 58 129 82 110 46 85 30 60 29 76 57 96 78 129 94Z"/></svg></div>
-<div class="scanlines" aria-hidden="true"></div>
 <header class="header">
-<a class="logo" href="./" aria-label="NEURODRIVE 首页"><span class="logo-symbol">N<span>↯</span></span><span>NEURO<span>DRIVE</span></span></a>
-<nav aria-label="主导航"><button class="nav-button current" data-view="lab">工作台</button><button class="nav-button" data-view="records">分析记录 <span id="recordCount">00</span></button><button class="nav-button" data-view="model">模型档案</button></nav>
+<a class="logo" href="./" aria-label="NEURODRIVE 首页"><span class="logo-symbol" aria-hidden="true">∿</span><span>NEURO<span>DRIVE</span></span></a>
+<nav aria-label="主导航"><button class="nav-button current" data-view="lab">工作台</button><button class="nav-button" data-view="evaluation">评估可视化</button><button class="nav-button" data-view="records">分析记录 <span id="recordCount">00</span></button><button class="nav-button" data-view="model">模型档案</button></nav>
 
 <button class="menu-help" id="help" aria-label="使用说明">?</button>
 </header>
 <main>
 <section class="intro">
-<div class="intro-heading"><h1>声音筛查<span class="intro-demo">研究模型</span></h1><p id="modelStatus" role="status">正在检查 Transformer 模型…</p></div>
+<div class="intro-heading"><span class="eyebrow">VOICE BIOMARKER LAB</span><h1>听见声音里的细微变化<span class="intro-demo">研究版</span></h1><p id="modelStatus" role="status">正在检查 Transformer 模型…</p></div>
 <div class="session"><div><span>会话编号</span><button id="regenerate" aria-label="重新生成随机编号">↻</button></div><strong id="sessionId">N8R2V6X4K9T3</strong></div>
 </section>
 
 <div id="labView">
-<div class="console-bar"><button id="shuffle" class="text-button" aria-label="随机切换界面排列">⤨ 重排</button></div>
+<div class="console-bar"><button id="shuffle" class="text-button" aria-label="随机切换界面排列">⤨ 切换布局</button></div>
 <section class="deck" id="deck">
 <section class="panel art-panel">
-<div class="panel-top"><span class="panel-label">神经声场</span><span class="chip" id="signalState">就绪</span></div>
-<div class="scene"><img src="assets/outrun-neural.png" alt="青色线框大脑漂浮于霓虹网格之上，远处是条纹落日与棕榈剪影" id="sceneImage"><div class="scene-shade"></div><span class="scene-cross cross-one">＋</span><span class="scene-cross cross-two">＋</span></div>
+<div class="panel-top"><span class="panel-label">01 / 声音采集</span><span class="chip" id="signalState">就绪</span></div>
+<div class="scene"><div class="voice-orbit"><div class="orbit-core"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="40" y="18" width="20" height="39" rx="10"/><path d="M29 45v5a21 21 0 0 0 42 0v-5M50 71v13M39 84h22"/></svg></div></div><span class="scene-caption">YOUR VOICE, IN FOCUS</span><p class="scene-note">自然发声，让每一段声音被认真倾听。</p></div>
 <div class="signal-heading"><span id="waveLabel"><i></i> 模拟声波</span><span id="waveTime">00:00 / 00:06</span></div><canvas id="waveCanvas" aria-label="语音波形"></canvas><div class="wave-axis" id="waveAxis"><span>0s</span><span>2s</span><span>4s</span><span>6s</span></div>
 <div class="audio-preview" id="audioPreview" hidden>
   <audio id="audioPlayback" controls preload="metadata" aria-label="采集音频回放"></audio>
@@ -38,7 +35,7 @@
 
 </section>
 <section class="panel protocol-panel">
-<div class="panel-top"><h2 class="panel-label">发声任务</h2></div>
+<div class="panel-top"><h2 class="panel-label">02 / 发声任务</h2></div>
 
 <div class="tasks" role="group" aria-label="选择发声任务">
 <button class="task" data-task="vowel" aria-pressed="false"><span class="task-icon">/ɑ/</span><span><strong>持续元音</strong></span><span class="task-radio">○</span></button>
@@ -56,10 +53,12 @@
 <button class="primary-button" id="analyze" disabled><span>请先采集语音</span><span>↗</span></button>
 </section>
 <section class="panel results-panel">
-<div class="panel-top"><h2 class="panel-label">分析结果</h2></div>
-<div class="score-title">模型分数</div>
-<div class="gauge"><svg viewBox="0 -20 240 175" aria-hidden="true"><defs><linearGradient id="neonStroke"><stop stop-color="#ff006e"/><stop offset="1" stop-color="#00d4ff"/></linearGradient></defs><path class="gauge-track" d="M30 130 A100 100 0 1 1 210 130"/><path id="scoreArc" class="gauge-value" d="M30 130 A100 100 0 1 1 210 130" pathLength="100"/><path class="gauge-ticks" d="M44 123 A85 85 0 1 1 196 123"/></svg><div class="score"><strong id="score">—</strong><span>0.0 <i></i> 1.0</span></div></div>
-<div class="score-band" id="scoreBand">等待语音输入</div><p class="score-note">研究分类 · 不能替代临床诊断</p>
+<div class="panel-top"><h2 class="panel-label">03 / 分组结果</h2></div>
+<div class="score-title">语音分组结果</div>
+<div class="score-band" id="scoreBand" role="status" aria-live="polite">等待语音输入</div><p class="score-note">比较训练组语音特征 · 不代表临床诊断</p>
+<details class="score-details"><summary>查看模型分数（辅助参考）</summary>
+<div class="gauge"><svg viewBox="0 -20 240 175" aria-hidden="true"><defs><linearGradient id="neonStroke"><stop stop-color="#6d5dfc"/><stop offset="1" stop-color="#4ecdc4"/></linearGradient></defs><path class="gauge-track" d="M30 130 A100 100 0 1 1 210 130"/><path id="scoreArc" class="gauge-value" d="M30 130 A100 100 0 1 1 210 130" pathLength="100"/><path class="gauge-ticks" d="M44 123 A85 85 0 1 1 196 123"/></svg><div class="score"><strong id="score">—</strong><span>0.0 <i></i> 1.0</span></div></div>
+</details>
 <div class="features">
 <div class="feature-row"><span>音频时长</span><strong id="f0Value">—</strong></div>
 <div class="feature-row"><span>模型采样率</span><strong id="jitterValue">—</strong></div>
@@ -73,11 +72,22 @@
 
 <section id="recordsView" class="panel alternate-view" hidden><div class="archive-heading"><h2>录音档案</h2><button id="refreshRecordings" class="text-button">刷新</button></div><div id="savedRecordings" class="saved-recordings" aria-live="polite">正在连接本机采集服务…</div><h3>本次分析记录</h3><div id="recordsList" class="records-list">尚无分析。</div></section>
 <section id="modelView" class="panel alternate-view" hidden><h2>模型档案</h2><p>CNN 声学编码 + Transformer Encoder + 时间注意力汇聚</p><div id="modelDetails" class="model-details">等待模型状态…</div></section>
+<section id="evaluationView" class="panel alternate-view" hidden>
+<div class="eval-heading"><div><span class="panel-label">MODEL / EVALUATION</span><h2>让结果清晰可见</h2></div><div class="eval-actions"><button id="importReport" class="secondary-button">导入 JSON 报告</button><button id="printEvaluation" class="secondary-button">打印 / 保存 PDF</button></div></div>
+<input id="reportFile" type="file" accept=".json,application/json" hidden>
+<p id="evaluationStatus" role="status">正在读取真实留出预测…</p>
+<section class="eval-card"><h3>本次录音</h3><div id="recordingVisual">完成一次分析或导入已导出的 JSON 报告，即可查看。</div></section>
+<h3 class="eval-section-title">模型整体评估 <small id="evaluationProtocol">受试者级 OOF</small></h3>
+<div id="evaluationMetrics" class="eval-metrics"></div>
+<div class="eval-charts"><figure class="eval-card"><figcaption>混淆矩阵 <small>行：真实分组 · 列：模型分类</small></figcaption><div id="confusionChart"></div></figure><figure class="eval-card"><figcaption>ROC 曲线 <small>不同分类阈值下的表现</small></figcaption><div id="rocChart"></div></figure></div>
+<p id="evaluationNotice" class="eval-notice"></p>
+</section>
 <footer><span>NEURODRIVE © 2026</span><span>本机语音分析 · 研究用途</span></footer>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <dialog id="helpDialog"><button id="closeHelp" class="dialog-close" aria-label="关闭说明">×</button><h2>语音分析</h2><p>确认同意后录音或导入音频，回放检查，再点击 Transformer 分析。模型在本机处理音频；仅在点击保存时持久存储原始录音。</p><p>当前模型仅用英文朗读语料训练验证。普通话和其他任务属于训练分布以外的输入，会拒绝分类或显示不确定。分数表示与训练组的相似性，不是个体患病概率，也不能用于确诊或排除帕金森病。</p><p>模型训练、验证门槛或音频质量未通过时，系统会提示原因，不使用模拟结果。</p></dialog>
 <script src="outrun.js"></script>
 <script src="capture.js"></script>
+<script src="evaluation.js"></script>
 </body>
 </html>

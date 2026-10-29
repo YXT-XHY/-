@@ -99,7 +99,7 @@ class AudioPredictor:
         low, high = self.card["uncertain_interval"]
         uncertain = low <= score <= high or spread > .20 or outside_language
         prediction = "uncertain" if uncertain else "pd_like" if score >= high else "hc_like"
-        text = {"uncertain": "结果不确定", "pd_like": "更接近帕金森组语音", "hc_like": "更接近健康对照组语音"}[prediction]
+        text = {"uncertain": "无法明确归组", "pd_like": "更接近帕金森病组", "hc_like": "更接近健康对照组"}[prediction]
         warnings = ["研究模型分类，不构成是否患病的临床诊断；模型分数不是患病概率。"]
         if outside_language:
             warnings.append("该语言未在训练数据中验证，分类结论已拒绝输出；可查看研究分数。")

@@ -18,6 +18,12 @@ AVAILABLE = (all(importlib.util.find_spec(name) for name in ("torch", "numpy", "
 
 @unittest.skipUnless(AVAILABLE, "Requires .venv-dl, trained artifacts and public audio QA fixture")
 class TestRealInference(unittest.TestCase):
+    def test_evaluation_endpoint_uses_subject_oof(self):
+        status, data = self.request("/api/evaluation")
+        self.assertEqual(status, 200)
+        self.assertEqual(data["source"], "saved_subject_oof")
+        self.assertEqual(data["metrics"]["fn"], 6)
+
     @classmethod
     def setUpClass(cls):
         from recording_server import CollectionServer
