@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+recordings/
+tests/fixtures/*.wav
+tests/fixtures/saved-synthetic-qa/
+.venv-dl/
+data/mdvr-kcl/
+data/public_discovery/
+pip-*/

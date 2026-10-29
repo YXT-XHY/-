@@ -1,0 +1,298 @@
+[
+  {
+    "subject": "MDVR_ID00",
+    "label": 0,
+    "logit": -0.44148877759774524,
+    "score": 0.3913862805858722,
+    "segments": 18,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID02",
+    "label": 1,
+    "logit": 0.45209061056375505,
+    "score": 0.611136180216005,
+    "segments": 20,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID10",
+    "label": 0,
+    "logit": -0.4961516229729903,
+    "score": 0.3784454769774181,
+    "segments": 19,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID15",
+    "label": 0,
+    "logit": -0.3460409084433003,
+    "score": 0.414342818563509,
+    "segments": 19,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID22",
+    "label": 0,
+    "logit": -0.3356628751175271,
+    "score": 0.4168633997348652,
+    "segments": 18,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID30",
+    "label": 1,
+    "logit": -0.9797020829037616,
+    "score": 0.27295090092205954,
+    "segments": 19,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID33",
+    "label": 1,
+    "logit": -0.13870343938469887,
+    "score": 0.4653796264520172,
+    "segments": 20,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID36",
+    "label": 0,
+    "logit": 0.20907430433564717,
+    "score": 0.5520790074028818,
+    "segments": 18,
+    "fold": 1
+  },
+  {
+    "subject": "MDVR_ID07",
+    "label": 1,
+    "logit": 3.684123042751761,
+    "score": 0.9754963191746905,
+    "segments": 17,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID08",
+    "label": 0,
+    "logit": -4.546047687530518,
+    "score": 0.010497681472517624,
+    "segments": 18,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID12",
+    "label": 0,
+    "logit": -3.8358700043625302,
+    "score": 0.021126587677825704,
+    "segments": 18,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID17",
+    "label": 1,
+    "logit": -3.4486371937550997,
+    "score": 0.030809527150798027,
+    "segments": 19,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID24",
+    "label": 1,
+    "logit": 4.103526151180267,
+    "score": 0.9837539522137407,
+    "segments": 20,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID26",
+    "label": 0,
+    "logit": -3.384860477949444,
+    "score": 0.032771977120318735,
+    "segments": 19,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID34",
+    "label": 1,
+    "logit": -4.73930413722992,
+    "score": 0.008668921826410938,
+    "segments": 20,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID35",
+    "label": 0,
+    "logit": -1.2429532527923584,
+    "score": 0.22392234771408864,
+    "segments": 15,
+    "fold": 2
+  },
+  {
+    "subject": "MDVR_ID06",
+    "label": 1,
+    "logit": 0.7324462152189679,
+    "score": 0.6753418479607518,
+    "segments": 18,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID11",
+    "label": 0,
+    "logit": -0.8129392450346666,
+    "score": 0.3072645143133539,
+    "segments": 17,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID14",
+    "label": 0,
+    "logit": 0.4060838127301799,
+    "score": 0.6001484799180261,
+    "segments": 18,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID16",
+    "label": 1,
+    "logit": -0.8191320995489756,
+    "score": 0.3059479221193905,
+    "segments": 18,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID19",
+    "label": 0,
+    "logit": -0.21305249631404877,
+    "score": 0.44693743941632397,
+    "segments": 20,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID25",
+    "label": 0,
+    "logit": -0.3123661171840994,
+    "score": 0.4225373018195595,
+    "segments": 19,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID27",
+    "label": 1,
+    "logit": 1.3376612003360475,
+    "score": 0.7921050635812359,
+    "segments": 14,
+    "fold": 3
+  },
+  {
+    "subject": "MDVR_ID01",
+    "label": 0,
+    "logit": -2.5256320939344516,
+    "score": 0.07408069645708935,
+    "segments": 17,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID03",
+    "label": 0,
+    "logit": 0.8312098532915115,
+    "score": 0.6966106861515132,
+    "segments": 20,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID20",
+    "label": 1,
+    "logit": 3.607582065794203,
+    "score": 0.9735986000291325,
+    "segments": 18,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID23",
+    "label": 0,
+    "logit": -2.2545276880264282,
+    "score": 0.09495963073025253,
+    "segments": 19,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID29",
+    "label": 1,
+    "logit": 1.8088109399143018,
+    "score": 0.8592181041850259,
+    "segments": 19,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID31",
+    "label": 0,
+    "logit": -0.7500181086361408,
+    "score": 0.3208173550562509,
+    "segments": 20,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID32",
+    "label": 1,
+    "logit": 1.2580501013077223,
+    "score": 0.7786902609599203,
+    "segments": 13,
+    "fold": 4
+  },
+  {
+    "subject": "MDVR_ID04",
+    "label": 1,
+    "logit": 4.041109059986315,
+    "score": 0.982725680823529,
+    "segments": 19,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID05",
+    "label": 0,
+    "logit": -4.039634353974286,
+    "score": 0.01729937149310345,
+    "segments": 17,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID09",
+    "label": 0,
+    "logit": -1.7482079722379382,
+    "score": 0.1482733676915887,
+    "segments": 19,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID13",
+    "label": 1,
+    "logit": -0.39627416317279524,
+    "score": 0.4022078404565215,
+    "segments": 13,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID18",
+    "label": 1,
+    "logit": 4.685204615959754,
+    "score": 0.9908535835180686,
+    "segments": 13,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID21",
+    "label": 0,
+    "logit": -3.9731983741124473,
+    "score": 0.018465765763103645,
+    "segments": 18,
+    "fold": 5
+  },
+  {
+    "subject": "MDVR_ID28",
+    "label": 0,
+    "logit": 2.5274321109056475,
+    "score": 0.9260426770323023,
+    "segments": 20,
+    "fold": 5
+  }
+]

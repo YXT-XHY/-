@@ -1,0 +1,17 @@
+# Local tools, caches and temporary exports
+.tmp/
+deliverables/
+__pycache__/
+*.py[cod]
+.venv/
+.venv-dl/
+.idea/
+.pytest_cache/
+uci_pd_simple/tmp*/
+
+# Local credentials and environment files
+.env
+.env.*
+!.env.example
+*.pem
+*.key

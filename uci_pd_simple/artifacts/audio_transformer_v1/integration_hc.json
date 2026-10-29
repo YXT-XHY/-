@@ -1,0 +1,87 @@
+{
+  "status": "ok",
+  "prediction": "hc_like",
+  "label": "更接近健康对照组语音",
+  "model_score": 0.091088,
+  "model_spread": 0.092492,
+  "model_scores": [
+    0.247583,
+    0.018498,
+    0.146865,
+    0.029837,
+    0.012657
+  ],
+  "uncertain": false,
+  "out_of_domain": false,
+  "model_id": "3dea972c126b743a",
+  "architecture": "CNN + Transformer Encoder + attention pooling",
+  "segments": 4,
+  "segment_seconds": 6.0,
+  "sample_rate": 16000,
+  "quality": {
+    "sample_rate": 16000,
+    "channels": 1,
+    "bits": 16,
+    "frames": 320000,
+    "duration_seconds": 20.0,
+    "rms_dbfs": -32.89,
+    "peak": 0.50732,
+    "clipping_ratio": 0.0,
+    "warnings": [],
+    "quality": "pass"
+  },
+  "attention": [
+    0.007169,
+    0.006752,
+    0.005531,
+    0.006596,
+    0.006972,
+    0.005623,
+    0.00641,
+    0.007877,
+    0.007007,
+    0.0058,
+    0.008552,
+    0.005868,
+    0.008315,
+    0.007336,
+    0.007888,
+    0.007177,
+    0.006121,
+    0.007286,
+    0.005266,
+    0.006347,
+    0.008173,
+    0.005333,
+    0.00597,
+    0.004854
+  ],
+  "attention_notice": "时间关注权重，不是病理定位。",
+  "warnings": [
+    "研究模型分类，不构成是否患病的临床诊断；模型分数不是患病概率。"
+  ],
+  "evaluation": {
+    "protocol": "stratified subject-disjoint outer CV with inner validation early stopping",
+    "unit": "subject",
+    "metrics": {
+      "subjects": 37,
+      "auc": 0.7589285714285714,
+      "accuracy": 0.7297297297297297,
+      "balanced_accuracy": 0.7172619047619048,
+      "sensitivity": 0.625,
+      "specificity": 0.8095238095238095,
+      "brier": 0.19622455197755279,
+      "tp": 10,
+      "tn": 17,
+      "fp": 4,
+      "fn": 6
+    },
+    "auc_bootstrap_95": [
+      0.5773809523809523,
+      0.9107142857142857
+    ],
+    "ensemble_note": "OOF metrics estimate held-out fold models, not the deployed ensemble directly."
+  },
+  "input_file": "public-mdvr-hc.wav",
+  "window_start_seconds": 0
+}

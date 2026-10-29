@@ -1,0 +1,12 @@
+{
+  "checked_date": "2026-10-28",
+  "note": "Curated leads, not downloaded training data. Access statements must be rechecked with providers.",
+  "sources": [
+    {"id": "ntu_30", "title": "台大30人口语语音", "url": "https://ark.nchc.org.tw/zh_TW/dataset/04_pd_voice_record_30", "access": "application_required", "language_verified": false},
+    {"id": "mild_pd_278", "title": "中文轻度PD持续元音研究，278人", "url": "https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2024.1377442/full", "access": "request_authors", "language_verified": true},
+    {"id": "mandarin_100", "title": "普通话多任务研究，100人", "url": "https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.1036588/full", "access": "request_authors", "language_verified": true},
+    {"id": "ntu_360", "title": "台大普通话朗读队列，360人", "url": "https://link.springer.com/content/pdf/10.1007/s00702-024-02874-z.pdf", "access": "request_authors", "language_verified": true},
+    {"id": "tsinghua_1035", "title": "清华汉语电话语音，1035人", "url": "https://newetds.lib.tsinghua.edu.cn/qh/paper/summary?dbCode=ETDQH&sysId=281672", "access": "sharing_unconfirmed", "language_verified": true},
+    {"id": "mdvr_english", "title": "MDVR-KCL，英文工程对照", "url": "https://zenodo.org/records/2867216", "access": "open_cc_by_4", "language_verified": true, "language": "en", "chinese_training_candidate": false}
+  ]
+}

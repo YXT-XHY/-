@@ -1,0 +1,93 @@
+{
+  "created_at_utc": "2026-10-27T12:54:25.683043+00:00",
+  "dataset": {
+    "rows": 195,
+    "subjects": 32,
+    "pd_subjects": 24,
+    "hc_subjects": 8,
+    "pd_rows": 147,
+    "hc_rows": 48,
+    "features": 22,
+    "recordings_per_subject_min": 6,
+    "recordings_per_subject_max": 7,
+    "duplicate_names": 0
+  },
+  "model": "L2 logistic regression (IRLS) + standardization",
+  "features": [
+    "MDVP:Fo(Hz)",
+    "MDVP:Fhi(Hz)",
+    "MDVP:Flo(Hz)",
+    "MDVP:Jitter(%)",
+    "MDVP:Jitter(Abs)",
+    "MDVP:RAP",
+    "MDVP:PPQ",
+    "Jitter:DDP",
+    "MDVP:Shimmer",
+    "MDVP:Shimmer(dB)",
+    "Shimmer:APQ3",
+    "Shimmer:APQ5",
+    "MDVP:APQ",
+    "Shimmer:DDA",
+    "NHR",
+    "HNR",
+    "RPDE",
+    "DFA",
+    "spread1",
+    "spread2",
+    "D2",
+    "PPE"
+  ],
+  "target": "status",
+  "threshold": 0.5,
+  "l2": 1.0,
+  "cv": {
+    "protocol": "repeated stratified subject-grouped K-fold",
+    "folds": 5,
+    "repeats": 20,
+    "summary": {
+      "auc": {
+        "mean": 0.7362174036281178,
+        "std": 0.032367444468216454,
+        "p2_5": 0.667998866213152,
+        "p97_5": 0.7827380952380952
+      },
+      "accuracy": {
+        "mean": 0.7748717948717949,
+        "std": 0.0167954126274037,
+        "p2_5": 0.7433333333333334,
+        "p97_5": 0.8
+      },
+      "sensitivity": {
+        "mean": 0.8734693877551021,
+        "std": 0.02297923167613816,
+        "p2_5": 0.8295918367346939,
+        "p97_5": 0.9015306122448979
+      },
+      "specificity": {
+        "mean": 0.4729166666666667,
+        "std": 0.024464289525516665,
+        "p2_5": 0.4265625,
+        "p97_5": 0.5109375
+      },
+      "precision": {
+        "mean": 0.8353904983741094,
+        "std": 0.006422891571770963,
+        "p2_5": 0.8256264088780996,
+        "p97_5": 0.8470811051693404
+      },
+      "f1": {
+        "mean": 0.8538778757361951,
+        "std": 0.01253800117500752,
+        "p2_5": 0.8297194423555273,
+        "p97_5": 0.8713240019606776
+      },
+      "brier": {
+        "mean": 0.17908668680373366,
+        "std": 0.012289224454623732,
+        "p2_5": 0.1559416761589963,
+        "p97_5": 0.19644495579635488
+      }
+    }
+  },
+  "warning": "Research/education baseline only; not a clinical device."
+}

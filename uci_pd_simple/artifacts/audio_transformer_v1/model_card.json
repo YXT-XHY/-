@@ -1,0 +1,558 @@
+{
+  "format": "neurodrive-audio-transformer-v1",
+  "architecture": "CNN + Transformer Encoder + attention pooling",
+  "trained": true,
+  "synthetic": false,
+  "purpose": "research_classification",
+  "model_config": {
+    "n_mels": 64,
+    "dimension": 64,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.25
+  },
+  "audio_config": {
+    "sample_rate": 16000,
+    "seconds": 6.0,
+    "n_fft": 512,
+    "hop_length": 160,
+    "n_mels": 64,
+    "f_min": 60.0,
+    "f_max": 7600.0
+  },
+  "labels": {
+    "0": "healthy_control",
+    "1": "parkinsons"
+  },
+  "folds": [
+    {
+      "file": "fold_1.safetensors",
+      "sha256": "fa51a715368f13b60c94ac08b08dc6fdc3884f723986a4966b8ff5ad094cda47",
+      "best_epoch": 2,
+      "validation_loss": 0.6085982322692871,
+      "test": {
+        "subjects": 8,
+        "auc": 0.6,
+        "accuracy": 0.625,
+        "balanced_accuracy": 0.5666666666666667,
+        "sensitivity": 0.3333333333333333,
+        "specificity": 0.8,
+        "brier": 0.23903561275546897,
+        "tp": 1,
+        "tn": 4,
+        "fp": 1,
+        "fn": 2
+      }
+    },
+    {
+      "file": "fold_2.safetensors",
+      "sha256": "de686c1e5ac1941802e2348aa637588884252d16832a85ada99f36c8c0938a67",
+      "best_epoch": 21,
+      "validation_loss": 0.07559515535831451,
+      "test": {
+        "subjects": 8,
+        "auc": 0.625,
+        "accuracy": 0.75,
+        "balanced_accuracy": 0.75,
+        "sensitivity": 0.5,
+        "specificity": 1.0,
+        "brier": 0.24683794974631293,
+        "tp": 2,
+        "tn": 4,
+        "fp": 0,
+        "fn": 2
+      }
+    },
+    {
+      "file": "fold_3.safetensors",
+      "sha256": "3b8473b43e67b138d320e5dbeb29a0df31ae1e201f4357b49140326c3290d5fc",
+      "best_epoch": 2,
+      "validation_loss": 0.6218204498291016,
+      "test": {
+        "subjects": 7,
+        "auc": 0.6666666666666666,
+        "accuracy": 0.7142857142857143,
+        "balanced_accuracy": 0.7083333333333333,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.75,
+        "brier": 0.20903029042422938,
+        "tp": 2,
+        "tn": 3,
+        "fp": 1,
+        "fn": 1
+      }
+    },
+    {
+      "file": "fold_4.safetensors",
+      "sha256": "53158a2c06a857f6ff9413c051c5288adf25999090328fb0c3f27c0f0d885802",
+      "best_epoch": 15,
+      "validation_loss": 0.5245433449745178,
+      "test": {
+        "subjects": 7,
+        "auc": 1.0,
+        "accuracy": 0.8571428571428571,
+        "balanced_accuracy": 0.875,
+        "sensitivity": 1.0,
+        "specificity": 0.75,
+        "brier": 0.0960271544464903,
+        "tp": 3,
+        "tn": 3,
+        "fp": 1,
+        "fn": 0
+      }
+    },
+    {
+      "file": "fold_5.safetensors",
+      "sha256": "7755920d8e2b8eb0d488a7ee02289becab8c6eaa6da8852ea04692cab9c7ab0f",
+      "best_epoch": 20,
+      "validation_loss": 0.4611128270626068,
+      "test": {
+        "subjects": 7,
+        "auc": 0.9166666666666666,
+        "accuracy": 0.7142857142857143,
+        "balanced_accuracy": 0.7083333333333333,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.75,
+        "brier": 0.1768454012943085,
+        "tp": 2,
+        "tn": 3,
+        "fp": 1,
+        "fn": 1
+      }
+    }
+  ],
+  "dataset": [
+    "MDVR-KCL"
+  ],
+  "languages": [
+    "en"
+  ],
+  "supported_tasks": [
+    "reading"
+  ],
+  "subjects": 37,
+  "recordings": 37,
+  "segments": 666,
+  "seed": 2026,
+  "threshold": 0.5,
+  "uncertain_interval": [
+    0.35,
+    0.65
+  ],
+  "evaluation": {
+    "protocol": "stratified subject-disjoint outer CV with inner validation early stopping",
+    "unit": "subject",
+    "metrics": {
+      "subjects": 37,
+      "auc": 0.7589285714285714,
+      "accuracy": 0.7297297297297297,
+      "balanced_accuracy": 0.7172619047619048,
+      "sensitivity": 0.625,
+      "specificity": 0.8095238095238095,
+      "brier": 0.19622455197755279,
+      "tp": 10,
+      "tn": 17,
+      "fp": 4,
+      "fn": 6
+    },
+    "auc_bootstrap_95": [
+      0.5773809523809523,
+      0.9107142857142857
+    ],
+    "ensemble_note": "OOF metrics estimate held-out fold models, not the deployed ensemble directly."
+  },
+  "manifest_sha256": "099371b5bf908c9ee71c977885c9b50006c5aa5239bd7b1548d6ba3e12658bf5",
+  "training_seconds": 103,
+  "limitations": [
+    "Small case-control dataset; not a prospective screening cohort.",
+    "No independent Mandarin validation; not a medical diagnosis.",
+    "Raw model score is not calibrated population disease probability.",
+    "Conversation audio excluded to reduce interviewer contamination."
+  ],
+  "deployment_allowed": true,
+  "data_provenance": {
+    "dataset": "MDVR-KCL",
+    "source": "https://zenodo.org/records/2867216",
+    "doi": "10.5281/zenodo.2867216",
+    "license": "CC BY 4.0",
+    "method": "official ZIP HTTP ranges, per-entry CRC32 and uncompressed size checked",
+    "full_archive_md5_verified": false,
+    "official_archive_md5": "98c51bdd2b092b93f8bb038dea4505fa",
+    "subjects": 37,
+    "recordings": 37,
+    "pd_subjects": 16,
+    "files": [
+      {
+        "subject": "MDVR_ID00",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "0d949e7bd700b93adcacf98a7da021469a2272a54e7455144f752e430f98e580",
+        "zip_crc32": 3091377025,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID00_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID01",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "5341d86d43a9155134f7a4f1b95f9c75f8885a22ffb37ff8b761bfebc28a7993",
+        "zip_crc32": 3958966122,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID01_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID02",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "32b7bc39988320bc490d9ef4084269ccb98c40a321bed887d9a24a19960e3be1",
+        "zip_crc32": 4259763210,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID02_pd_2_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID03",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "08a66af898563fc6af10c4d238b85ff4e69a571c367dd8018f328af475b2ad34",
+        "zip_crc32": 588617167,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID03_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID04",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "293c7998d5e7feb28dbab2e85f65ca5b161013c16865b30c5f1fa0c324898204",
+        "zip_crc32": 357288052,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID04_pd_2_0_1.wav"
+      },
+      {
+        "subject": "MDVR_ID05",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "45ab773f4c3111a615573db99f7029b85b64f59cf66e1de607b96a6f66ebbc8b",
+        "zip_crc32": 2983035441,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID05_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID06",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "0b22d0258f60037449393055f9a62c5bc0aa147161c9d1ad3c67c823183956ef",
+        "zip_crc32": 1827570549,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID06_pd_3_1_1.wav"
+      },
+      {
+        "subject": "MDVR_ID07",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "6e72d502a0f9ff2ab2349459c18035dac95a5bba624b2e5107ac59b5731a1359",
+        "zip_crc32": 2162884915,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID07_pd_2_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID08",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "92a5e047cf4b11ebbc806f2b4153d4f37aa1f7983b6720db9748ec66c5c4a0a6",
+        "zip_crc32": 4070403611,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID08_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID09",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "4895b08b2f5fa66ae33f9abb49714b66b068f0449a18aa385ab504f172831017",
+        "zip_crc32": 4019943509,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID09_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID10",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "2527f2b9d1a39499e5f2cba05d6bcd9a5e41380ac6b68ad21ebcac99723ab98a",
+        "zip_crc32": 587916665,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID10_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID11",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "d85d853b9f5d8507be5b0104654151afafe05ea2be01e853d3d81c921e0f2296",
+        "zip_crc32": 460408947,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID11_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID12",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "372aa650c045657a4645e3ae0fc9100018378aa36f7a626e21c7f80c51de5a05",
+        "zip_crc32": 2964690792,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID12_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID13",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "4c724700cbcac61b795010c74ebd1bdac42f71eea78cfa3f94dacbb8dc1a9439",
+        "zip_crc32": 3905722256,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID13_pd_3_2_2.wav"
+      },
+      {
+        "subject": "MDVR_ID14",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "ab0c5ececd982df99196b20454ba0f622826692bb73fa33aeecece64ba33ff27",
+        "zip_crc32": 1270281424,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID14_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID15",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "1b643fef569638f03ea0f98378e15797ff8016a31ba7edb3f1eb34afd5f787fa",
+        "zip_crc32": 3616435741,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID15_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID16",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "df604fabb98f6df49facf15ac5b67357d2c68e0b2143370263ef721154b301ea",
+        "zip_crc32": 2177209946,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID16_pd_2_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID17",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "b53c7215af37baaafa70c5dcb5b76f41cfec107f6a1fe88b7b0a6731afdd8acb",
+        "zip_crc32": 1071312062,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID17_pd_2_1_0.wav"
+      },
+      {
+        "subject": "MDVR_ID18",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "7def87f57cc0df304ff495dc7ff77efdea04623d8ffaa43f6dfe9d8006cda755",
+        "zip_crc32": 2908661071,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID18_pd_4_3_3.wav"
+      },
+      {
+        "subject": "MDVR_ID19",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "8b4e96903a5fb318cecbe96ccd047db208239b65b30409e1f24e6f18675b78e1",
+        "zip_crc32": 62446686,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID19_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID20",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "21ea35eb6a6f96a1a61c81270f920bb5f9d060ac3af3d0ace10f7a407fe7035d",
+        "zip_crc32": 647293338,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID20_pd_3_0_1.wav"
+      },
+      {
+        "subject": "MDVR_ID21",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "8f95061df8bac578257fb0082bb0885a1259164b51deec54205b0103bb14219f",
+        "zip_crc32": 2930855632,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID21_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID22",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "d1833104aae24a2ce80af3d93007a64e59eb85310a2b9f34d3439973c026cbe2",
+        "zip_crc32": 464229104,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID22_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID23",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "455c41d48607bcc2013ee1fc876000bd217fe73c3e15d3d87fa254170dd66b4d",
+        "zip_crc32": 3772966945,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID23_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID24",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "6088c79d9326d48ec76350de72449d36e787d46d284a8bf6419cc37feb9736e8",
+        "zip_crc32": 2140778140,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID24_pd_2_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID25",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "e51d02cca0160151bd2e28c39e00457ced052a84adb087642fe925a13e76b82f",
+        "zip_crc32": 3621639596,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID25_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID26",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "c729bfb8bd430db9172da3e00cf28524f89f9a7b8015fbd81c98540f5aa00069",
+        "zip_crc32": 3600101470,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID26_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID27",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "ccff93f635288436de66c1d75ebafc32ae9f22dacb065a129cdb6c217fc70025",
+        "zip_crc32": 3855521436,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID27_pd_4_1_1.wav"
+      },
+      {
+        "subject": "MDVR_ID28",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "108f26d745a635e276a240d18c6aec9a57071e947f6c85242635a311c4996656",
+        "zip_crc32": 2075133150,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID28_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID29",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "404c370d71a9bd4fb9b4dc6e729e25812a3020a06c9750be033667d2bba64325",
+        "zip_crc32": 3883675444,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID29_pd_3_1_2.wav"
+      },
+      {
+        "subject": "MDVR_ID30",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "ddefd752c37a7b71b7f83f013614d8e96868d8fc5c9f901ea0c858d52b6f6153",
+        "zip_crc32": 520634363,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID30_pd_2_1_1.wav"
+      },
+      {
+        "subject": "MDVR_ID31",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "7089cfc1ab25aa039d5bacd7c12e7b4a26341a9abafe35d3a991ee246784a0a4",
+        "zip_crc32": 2785786267,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID31_hc_0_1_1.wav"
+      },
+      {
+        "subject": "MDVR_ID32",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "0070ab1ee02cb8ffff0faa38418a01f03b6ade9bb5a6b239efbda4f399e71a59",
+        "zip_crc32": 1275583932,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID32_pd_3_1_1.wav"
+      },
+      {
+        "subject": "MDVR_ID33",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "a27770929614943486ba933a788de9ff76c750f7986b2d1d58b2e1ad3520bbf4",
+        "zip_crc32": 1713052286,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID33_pd_3_2_2.wav"
+      },
+      {
+        "subject": "MDVR_ID34",
+        "label": 1,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "42a4a84937d1206814189b28b42c432e663d6852f151f06869759bb7be8a2229",
+        "zip_crc32": 3243999639,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/PD/ID34_pd_2_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID35",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "5d091a0f24e739557d217faa35d3730aeda4ab84feeaff3391b6480ab242d6ab",
+        "zip_crc32": 502480071,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID35_hc_0_0_0.wav"
+      },
+      {
+        "subject": "MDVR_ID36",
+        "label": 0,
+        "task": "reading",
+        "language": "en",
+        "dataset": "MDVR-KCL",
+        "sha256": "4e9191a247d402c897b10633ef2a76918627b70ee3a27cb69385c3bccafec8eb",
+        "zip_crc32": 290388696,
+        "archive_entry": "26-29_09_2017_KCL/ReadText/HC/ID36_hc_0_0_0.wav"
+      }
+    ],
+    "citation": "Jaeger H, Trivedi D, Stadtschnitzer M. MDVR-KCL. Zenodo, 2019."
+  }
+}

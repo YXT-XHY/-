@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10051d"><meta name="description" content="NEURODRIVE 神经声学实验室：Outrun 复古未来交互原型">
+<title>NEURODRIVE / 神经声学实验室</title>
+<link rel="stylesheet" href="outrun.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"><div class="stars"></div><div class="sun"></div><div class="horizon"></div><div class="grid-floor"></div>
+<svg class="palm palm-left" viewBox="0 0 200 320"><path d="M109 320C97 236 110 155 125 90L133 93C112 168 112 238 128 320ZM129 94C93 64 42 76 13 103 48 94 77 91 114 100 69 100 39 120 29 151 58 131 86 118 120 109 93 137 86 164 91 191 107 165 123 137 134 110 145 146 167 166 190 170 176 139 161 115 143 101 172 99 190 105 200 119 199 88 170 75 138 84 165 64 179 45 179 22 156 36 135 58 129 82 110 46 85 30 60 29 76 57 96 78 129 94Z"/></svg>
+<svg class="palm palm-right" viewBox="0 0 200 320"><path d="M109 320C97 236 110 155 125 90L133 93C112 168 112 238 128 320ZM129 94C93 64 42 76 13 103 48 94 77 91 114 100 69 100 39 120 29 151 58 131 86 118 120 109 93 137 86 164 91 191 107 165 123 137 134 110 145 146 167 166 190 170 176 139 161 115 143 101 172 99 190 105 200 119 199 88 170 75 138 84 165 64 179 45 179 22 156 36 135 58 129 82 110 46 85 30 60 29 76 57 96 78 129 94Z"/></svg></div>
+<div class="scanlines" aria-hidden="true"></div>
+<header class="header">
+<a class="logo" href="./" aria-label="NEURODRIVE 首页"><span class="logo-symbol">N<span>↯</span></span><span>NEURO<span>DRIVE</span></span></a>
+<nav aria-label="主导航"><button class="nav-button current" data-view="lab">工作台</button><button class="nav-button" data-view="records">分析记录 <span id="recordCount">00</span></button><button class="nav-button" data-view="model">模型档案</button></nav>
+
+<button class="menu-help" id="help" aria-label="使用说明">?</button>
+</header>
+<main>
+<section class="intro">
+<div class="intro-heading"><h1>声音筛查<span class="intro-demo">研究模型</span></h1><p id="modelStatus" role="status">正在检查 Transformer 模型…</p></div>
+<div class="session"><div><span>会话编号</span><button id="regenerate" aria-label="重新生成随机编号">↻</button></div><strong id="sessionId">N8R2V6X4K9T3</strong></div>
+</section>
+
+<div id="labView">
+<div class="console-bar"><button id="shuffle" class="text-button" aria-label="随机切换界面排列">⤨ 重排</button></div>
+<section class="deck" id="deck">
+<section class="panel art-panel">
+<div class="panel-top"><span class="panel-label">神经声场</span><span class="chip" id="signalState">就绪</span></div>
+<div class="scene"><img src="assets/outrun-neural.png" alt="青色线框大脑漂浮于霓虹网格之上，远处是条纹落日与棕榈剪影" id="sceneImage"><div class="scene-shade"></div><span class="scene-cross cross-one">＋</span><span class="scene-cross cross-two">＋</span></div>
+<div class="signal-heading"><span id="waveLabel"><i></i> 模拟声波</span><span id="waveTime">00:00 / 00:06</span></div><canvas id="waveCanvas" aria-label="语音波形"></canvas><div class="wave-axis" id="waveAxis"><span>0s</span><span>2s</span><span>4s</span><span>6s</span></div>
+<div class="audio-preview" id="audioPreview" hidden>
+  <audio id="audioPlayback" controls preload="metadata" aria-label="采集音频回放"></audio>
+  <div id="audioQuality" class="audio-quality" role="status"></div>
+  <div class="clip-actions"><button id="saveAudio" class="secondary-button">保存本机</button><a id="downloadAudio" class="audio-download" download="recording.wav">下载 WAV</a><button id="clearAudio" class="text-button">清除</button></div>
+</div>
+
+</section>
+<section class="panel protocol-panel">
+<div class="panel-top"><h2 class="panel-label">发声任务</h2></div>
+
+<div class="tasks" role="group" aria-label="选择发声任务">
+<button class="task" data-task="vowel" aria-pressed="false"><span class="task-icon">/ɑ/</span><span><strong>持续元音</strong></span><span class="task-radio">○</span></button>
+<button class="task" data-task="ddk" aria-pressed="false"><span class="task-icon syllables">pa<br>ta·ka</span><span><strong>音节重复</strong></span><span class="task-radio">○</span></button>
+<button class="task selected" data-task="reading" aria-pressed="true"><span class="task-icon">≋</span><span><strong>短文朗读</strong></span><span class="task-radio">●</span></button>
+</div>
+<div class="language-control"><label for="audioLanguage">录音语言</label><select id="audioLanguage"><option value="en">English · 训练语种</option><option value="zh">普通话 · 跨语种未验证</option></select></div>
+<div class="guidance"><div><span>指引</span><strong id="duration">15–25 秒</strong></div><p id="instruction"></p></div>
+<div class="capture-controls">
+  <label class="consent"><input type="checkbox" id="recordConsent">已获受试者录音及本机保存同意</label>
+  <div class="capture-actions"><button id="recordAudio" class="primary-button" aria-pressed="false">● 开始录音</button><button id="importAudio" class="secondary-button">导入音频</button></div>
+  <input type="file" id="audioFile" accept="audio/*,.wav,.mp3,.m4a,.ogg,.flac" hidden>
+  <p id="captureStatus" class="capture-status" aria-live="polite">最长录音 30 秒 · 支持外接麦克风</p>
+</div>
+<button class="primary-button" id="analyze" disabled><span>请先采集语音</span><span>↗</span></button>
+</section>
+<section class="panel results-panel">
+<div class="panel-top"><h2 class="panel-label">分析结果</h2></div>
+<div class="score-title">模型分数</div>
+<div class="gauge"><svg viewBox="0 -20 240 175" aria-hidden="true"><defs><linearGradient id="neonStroke"><stop stop-color="#ff006e"/><stop offset="1" stop-color="#00d4ff"/></linearGradient></defs><path class="gauge-track" d="M30 130 A100 100 0 1 1 210 130"/><path id="scoreArc" class="gauge-value" d="M30 130 A100 100 0 1 1 210 130" pathLength="100"/><path class="gauge-ticks" d="M44 123 A85 85 0 1 1 196 123"/></svg><div class="score"><strong id="score">—</strong><span>0.0 <i></i> 1.0</span></div></div>
+<div class="score-band" id="scoreBand">等待语音输入</div><p class="score-note">研究分类 · 不能替代临床诊断</p>
+<div class="features">
+<div class="feature-row"><span>音频时长</span><strong id="f0Value">—</strong></div>
+<div class="feature-row"><span>模型采样率</span><strong id="jitterValue">—</strong></div>
+<div class="feature-row"><span>分析片段</span><strong id="shimmerValue">—</strong></div>
+<div class="feature-row"><span>模型分歧</span><strong id="hnrValue">—</strong></div>
+</div><div id="predictionWarnings" class="prediction-warnings" role="status"></div><button id="export" class="secondary-button" disabled><span>导出报告</span><span>↓</span></button>
+</section>
+</section>
+
+</div>
+
+<section id="recordsView" class="panel alternate-view" hidden><div class="archive-heading"><h2>录音档案</h2><button id="refreshRecordings" class="text-button">刷新</button></div><div id="savedRecordings" class="saved-recordings" aria-live="polite">正在连接本机采集服务…</div><h3>本次分析记录</h3><div id="recordsList" class="records-list">尚无分析。</div></section>
+<section id="modelView" class="panel alternate-view" hidden><h2>模型档案</h2><p>CNN 声学编码 + Transformer Encoder + 时间注意力汇聚</p><div id="modelDetails" class="model-details">等待模型状态…</div></section>
+<footer><span>NEURODRIVE © 2026</span><span>本机语音分析 · 研究用途</span></footer>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="helpDialog"><button id="closeHelp" class="dialog-close" aria-label="关闭说明">×</button><h2>语音分析</h2><p>确认同意后录音或导入音频，回放检查，再点击 Transformer 分析。模型在本机处理音频；仅在点击保存时持久存储原始录音。</p><p>当前模型仅用英文朗读语料训练验证。普通话和其他任务属于训练分布以外的输入，会拒绝分类或显示不确定。分数表示与训练组的相似性，不是个体患病概率，也不能用于确诊或排除帕金森病。</p><p>模型训练、验证门槛或音频质量未通过时，系统会提示原因，不使用模拟结果。</p></dialog>
+<script src="outrun.js"></script>
+<script src="capture.js"></script>
+</body>
+</html>
